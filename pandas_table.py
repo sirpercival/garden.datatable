@@ -62,7 +62,7 @@ Builder.load_string("""
     size_hint_y: None
     height: '20dp'
     Label:
-        root.text
+        text: root.text
         size_hint_x: 0.3
     TextInput:
         id: val
@@ -71,8 +71,8 @@ Builder.load_string("""
         size_hint_x: 0.7
 
 <AxisPopup>:
-    actions: [x for x in dir(self.data) if (ismethod(getattr(self.data,x))
-                                            and not x.startswith('_'))]
+    actions: [x for x in dir(self.data) if (ismethod(getattr(self.data, x))
+              and not x.startswith('_'))]
     BoxLayout:
         orientation: 'horizontal'
         BoxLayout:
@@ -337,4 +337,4 @@ class DataTable(Label):
 
 if __name__ == "__main__":
     from kivy.base import runTouchApp
-    runTouchApp(DataTable)
+    runTouchApp(DataTable(grid=False))
